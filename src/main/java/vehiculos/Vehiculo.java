@@ -21,10 +21,10 @@ public class Vehiculo {
 		this.fabricante = fabricante;
 		this.traccion = traccion;
 		
-		if (País.ventasPorPais.containsKey(fabricante.getPaís())) {
-			 País.ventasPorPais.put(fabricante.getPaís(), País.ventasPorPais.get(fabricante.getPaís()) + 1); 
+		if (Pais.ventasPorPais.containsKey(fabricante.getPais())) {
+			 Pais.ventasPorPais.put(fabricante.getPais(), Pais.ventasPorPais.get(fabricante.getPais()) + 1); 
 	    } else {
-	    	 País.ventasPorPais.put(fabricante.getPaís(), 1);    
+	    	 Pais.ventasPorPais.put(fabricante.getPais(), 1);    
 	    }
 		
 		if (Fabricante.ventasPorFabrica.containsKey(fabricante)) {
@@ -56,7 +56,7 @@ public class Vehiculo {
 	public void setFabricante(Fabricante fabricante) {this.fabricante = fabricante;}
 	public void setTraccion(String traccion) {this.traccion = traccion;}
 	
-	public String vehiculosPorTipo() {return "Automoviles: " + Automóvil.getCantidadAutomoviles()+ 
+	public String vehiculosPorTipo() {return "Automoviles: " + Automovil.getCantidadAutomoviles()+ 
 			"\nCamionetas: " + Camioneta.getCantidadCamionetas() + 
 			"\nCamiones: " + Camion.getCantidadCamiones(); }
 }
