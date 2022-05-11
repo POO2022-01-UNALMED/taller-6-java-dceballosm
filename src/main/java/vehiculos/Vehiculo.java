@@ -21,17 +21,10 @@ public class Vehiculo {
 		this.fabricante = fabricante;
 		this.traccion = traccion;
 		
-		if (Pais.ventasPorPais.containsKey(fabricante.getPais())) {
-			 Pais.ventasPorPais.put(fabricante.getPais(), Pais.ventasPorPais.get(fabricante.getPais()) + 1); 
-	    } else {
-	    	 Pais.ventasPorPais.put(fabricante.getPais(), 1);    
-	    }
-		
-		if (Fabricante.ventasPorFabrica.containsKey(fabricante)) {
-			Fabricante.ventasPorFabrica.put(fabricante, Fabricante.ventasPorFabrica.get(fabricante) + 1);
-	    } else {
-	    	Fabricante.ventasPorFabrica.put(fabricante, 1);
-	    }
+		fabricante.setContador();
+		fabricante.getPais().setContador();
+		Fabricante.getFabricantes().add(fabricante);
+		Pais.getPaises().add(fabricante.getPais());
 		
 		Vehiculo.CantidadVehiculos = Vehiculo.CantidadVehiculos + 1;
 	}
@@ -55,8 +48,9 @@ public class Vehiculo {
 	public void setPeso(int peso) {this.peso = peso;}
 	public void setFabricante(Fabricante fabricante) {this.fabricante = fabricante;}
 	public void setTraccion(String traccion) {this.traccion = traccion;}
+	public static void setCantidadVehiculos(int CantidadVehiculos) {Vehiculo.CantidadVehiculos=CantidadVehiculos;}
 	
-	public String vehiculosPorTipo() {return "Automoviles: " + Automovil.getCantidadAutomoviles()+ 
-			"\nCamionetas: " + Camioneta.getCantidadCamionetas() + 
-			"\nCamiones: " + Camion.getCantidadCamiones(); }
+	public String vehiculosPorTipo() {
+		return "Automoviles: " + Automovil.getCantidadAutomoviles() + "\nCamionetas: " + Camioneta.getCantidadCamionetas() + "\nCamiones: " + Camion.getCantidadCamiones();
+	}
 }
