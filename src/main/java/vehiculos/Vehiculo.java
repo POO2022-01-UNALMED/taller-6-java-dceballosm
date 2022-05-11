@@ -20,13 +20,11 @@ public class Vehiculo {
 		this.peso = peso;
 		this.fabricante = fabricante;
 		this.traccion = traccion;
-		
+		CantidadVehiculos ++;
 		fabricante.setContador();
 		fabricante.getPais().setContador();
 		Fabricante.getFabricantes().add(fabricante);
 		Pais.getPaises().add(fabricante.getPais());
-		
-		Vehiculo.CantidadVehiculos = Vehiculo.CantidadVehiculos + 1;
 	}
 	
 	public String getPlaca() {return this.placa;}
